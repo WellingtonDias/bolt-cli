@@ -7,5 +7,8 @@
 	},
 	"devDependencies": {
 		"pkg": "^4.4.9"
+	},
+	"scripts": {
+		"build": "pkg -t latest -o './bin/bolt' './lib/bolt.js'"
 	}
 }

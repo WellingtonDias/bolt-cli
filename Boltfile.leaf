@@ -12,7 +12,7 @@
 		input = "./bin/bolt",
 		output = "/usr/bin/"
 	},
-	execute = "pkg -t latest -o './bin/bolt' './lib/bolt.js'",
+	execute = "npm run build",
 	merge =
 	{
 		input =
