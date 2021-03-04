@@ -1,0 +1,41 @@
+{
+	modules =
+	{
+		clean = "https://raw.githubusercontent.com/WellingtonDias/bolt-clean/master/index.js",
+		copy = "https://raw.githubusercontent.com/WellingtonDias/bolt-copy/master/index.js",
+		execute = "https://raw.githubusercontent.com/WellingtonDias/bolt-execute/master/index.js",
+		merge = "https://raw.githubusercontent.com/WellingtonDias/bolt-merge/master/index.js"
+	},
+	clean = ["./bin/bolt","./lib/bolt.js"],
+	copy =
+	{
+		input = "./bin/bolt",
+		output = "/usr/bin/"
+	},
+	execute = "pkg -t latest -o './bin/bolt' './lib/bolt.js'",
+	merge =
+	{
+		input =
+		[
+			"./src/require.js",
+			["./src/helper/",
+				["header",
+					"isNull","isBoolean","isNumber","isString","isArray","isObject","isFunction",
+					"isNotNull","isNotBoolean","isNotNumber","isNotString","isNotArray","isNotObject","isNotFunction",
+					"isPath","isFile","isDirectory",
+					"isNotPath","isNotFile","isNotDirectory",
+					"throwWarning","throwError",
+					"resolvePath"
+				],".js"],
+			["./src/core/",["header","openFile","validateFile","importModules","loadModules","runMacro","runTask"],".js"],
+			"./src/cli.js"
+		],
+		output = "./lib/bolt.js"
+	},
+	macros =
+	{
+		build = ["merge","execute"],
+		production = "copy",
+		clean = "clean"
+	}
+}

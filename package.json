@@ -1,0 +1,11 @@
+{
+	"dependencies": {
+		"glob": "^7.1.6",
+		"leaf-javascript": "^1.0.14",
+		"log-timestamp": "^0.3.0",
+		"node-fetch": "^2.6.0"
+	},
+	"devDependencies": {
+		"pkg": "^4.4.9"
+	}
+}
